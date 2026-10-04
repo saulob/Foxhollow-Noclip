@@ -6,9 +6,10 @@
 
 #include "foxhollow_mod_api.h"
 
-/* Partial x64 layouts of the game records Noclip touches. The game headers'
-   STATIC_ASSERT offsets describe the 32-bit GameCube layout, so these offsets
-   come from the headers compiled for x64 and match what objMove,
+/* Partial native 64-bit layouts of the game records Noclip touches, the same
+   on every supported Foxhollow target. The game headers' STATIC_ASSERT offsets
+   describe the 32-bit GameCube layout, so these offsets come from the headers
+   compiled for the 64-bit Foxhollow build and match what objMove,
    playerUpdateVelocityFromMotion, playerDoHitDetection, ObjHits_ApplyPairResponse
    and the curves collision code read and write in the Foxhollow build. */
 typedef struct GameObject GameObject;

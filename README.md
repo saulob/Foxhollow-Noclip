@@ -2,17 +2,20 @@
 
 A standalone native mod for Star Fox Adventures running through Foxhollow. It lets the player walk through walls and other collision during normal on-foot gameplay, while still stopping at the edge of the map and keeping the player from falling forever.
 
-It is based on the already-tested Noclip from the Foxhollow `feature/cheat-menu-noclip` branch, controlled directly by F12.
+It is based on the already-tested Noclip from the Foxhollow `feature/cheat-menu-noclip` branch, controlled directly by the 0 and Numpad 0 keys.
 
 ## Controls
 
 | Key | Action |
 | --- | --- |
-| F12 | Toggle Noclip |
+| 0 / Numpad 0 | Toggle Noclip |
 
-- F12 acts once per press. Holding it does not repeat.
+- 0 is the regular 0 key on the number row above the letters. Numpad 0, the 0 on the numeric keypad, works the same way.
+- Each press toggles once. Holding a key does not repeat; release it and press it again to toggle again.
+- Both keys are one control: pressing both at once, or one while the other is held, toggles only once.
 - A key that is already held when the game window regains focus has to be released and pressed again.
-- F12 only works during gameplay while the game window is focused.
+- The keys only work during gameplay while the Foxhollow window has keyboard focus. A key pressed while the window is in the background is ignored, not saved for later.
+- On Windows, Numpad 0 requires Num Lock to be on. With Num Lock off, or while Shift is held, it is not treated as a Noclip key. Insert is not a Noclip control.
 - Noclip starts off and turns off when you leave the current save (returning to the title screen, the save select or a soft reset).
 - There is no on-screen display. Changes are written to the Foxhollow log, for example `[Noclip] enabled`.
 
@@ -35,7 +38,7 @@ Works on its own, and together with:
 - [Foxhollow Player Cheats](https://github.com/saulob/Foxhollow-Player-Cheats): with Fast Movement on, the player passes through walls at the doubled speed.
 - [Foxhollow Fly Mode](https://github.com/saulob/Foxhollow-Fly-Mode): Fly Up, Fly Down and hovering keep working while Noclip is on, and Return to Safe Position works as usual. Fall protection steps aside while Fly Mode controls the height (rising, descending or hovering).
 
-All three mods can be installed and used at the same time, in any load order.
+All three mods can be installed and used at the same time, in any load order. Noclip only uses 0 and Numpad 0, so it shares no key with Fly Mode (Home, End, Page Up and Page Down) or Player Cheats (1-4 and Numpad 1-4).
 
 ## Installation
 
@@ -50,15 +53,33 @@ mods/
     lib/
       windows-amd64/
         mod.dll
+      linux-amd64/
+        mod.so
+      linux-arm64/
+        mod.so
+      macos-x86_64/
+        mod.so
+      macos-arm64/
+        mod.so
 ```
+
+Foxhollow only loads the library in the folder that matches your system and ignores the others, so you only need the folder for your platform.
 
 Restart the game after installing.
 
 ## Platform support
 
-- Windows x64
+| Platform | Folder | Status |
+| --- | --- | --- |
+| Windows x64 | `windows-amd64` | Tested in game |
+| Linux x86_64 | `linux-amd64` | Build validation by GitHub Actions pending, in-game testing pending |
+| Linux ARM64 | `linux-arm64` | Build validation by GitHub Actions pending, in-game testing pending |
+| macOS Apple Silicon | `macos-arm64` | Build validation by GitHub Actions pending, in-game testing pending |
+| macOS Intel | `macos-x86_64` | Build validation by GitHub Actions pending, in-game testing pending |
 
-Other Foxhollow platforms are not supported by this mod yet.
+Official Foxhollow builds are currently published for Windows x64, Linux x86_64 and macOS Apple Silicon. The Linux ARM64 and macOS Intel libraries are for Foxhollow builds you compile yourself. Windows on ARM is not supported.
+
+On Linux and macOS, 0 and Numpad 0 are read from the keyboard state of Foxhollow's own SDL3 runtime, so the mod needs no extra libraries (no separate SDL install) and does not use X11, Wayland or macOS keyboard APIs directly. There the keys are recognized by their position on the keyboard, so Numpad 0 works with Num Lock on or off. If the Foxhollow log shows `[Noclip] disabled: ...`, the mod could not find the game functions or keyboard input it needs and left the game unchanged.
 
 ## Repository
 

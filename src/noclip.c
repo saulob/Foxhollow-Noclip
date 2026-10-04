@@ -387,7 +387,8 @@ static void void_track(GameObject* player, PlayerState* st, const MoveStart* sta
    playerDoEyeAnims. The cheat menu ran this between
    playerUpdateVelocityFromMotion and the velocity clamp; nothing in between
    reads what it changes, so the player leaves this point exactly as it did.
-   A fall that began with Noclip on is still followed after F12 off. */
+   A fall that began with Noclip on is still followed after Noclip is turned
+   off. */
 void noclipUpdate(GameObject* player) {
   MoveStart start = sMoveStart;
   PlayerState* st;
@@ -646,7 +647,8 @@ void noclipPlayerMoved(GameObject* obj) {
    that the anchor is still one of the live static camera objects (the list
    the camera found it in) and, if not, mark it missing, which makes the
    camera take its own fallback to the default camera. Armed for the rest of
-   the save once Noclip has been on, since the camera can outlive F12 off. */
+   the save once Noclip has been on, since the camera can outlive turning
+   Noclip off. */
 void noclipCheckStaticCamera(void) {
   StaticCameraState* state;
   GameObject** anchors;

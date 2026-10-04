@@ -1,9 +1,9 @@
 {
   "id": "com.saulob.noclip",
   "name": "Noclip",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "author": "saulob",
-  "description": "Adds a Noclip mode to Star Fox Adventures using F12 to move through collision while keeping map-boundary and fall protection",
+  "description": "Adds a Noclip mode to Star Fox Adventures using 0 or Numpad 0 to move through collision while keeping map-boundary and fall protection",
   "compatibility": {
     "abi": 2
   }
