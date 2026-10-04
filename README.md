@@ -38,7 +38,7 @@ Works on its own, and together with:
 - [Foxhollow Player Cheats](https://github.com/saulob/Foxhollow-Player-Cheats): with Fast Movement on, the player passes through walls at the doubled speed.
 - [Foxhollow Fly Mode](https://github.com/saulob/Foxhollow-Fly-Mode): Fly Up, Fly Down and hovering keep working while Noclip is on, and Return to Safe Position works as usual. Fall protection steps aside while Fly Mode controls the height (rising, descending or hovering).
 
-All three mods can be installed and used at the same time, in any load order. Noclip only uses 0 and Numpad 0, so it shares no key with Fly Mode (Home, End, Page Up and Page Down) or Player Cheats (1-4 and Numpad 1-4).
+All three mods can be installed and used at the same time, in any load order. Noclip only uses 0 and Numpad 0, so it shares no key with Fly Mode (Home, End, Page Up and Page Down) or Player Cheats (1-5 and Numpad 1-5).
 
 ## Installation
 
